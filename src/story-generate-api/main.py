@@ -1,10 +1,19 @@
 from fastapi import FastAPI
 from fastapi.responses import StreamingResponse
+from fastapi.middleware.cors import CORSMiddleware
 from schemas import StoryRequest
 from openai_client import stream_story
 from utils import make_prompt, markdown_header, markdown_footer
 
 app = FastAPI(title="Story Generator API")
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.post("/generate_story")
 def generate_story(data: StoryRequest):
