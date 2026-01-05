@@ -6,6 +6,6 @@
 return [
     'story' => [
         'class' => 'app\modules\story\Module',
-        'python_api_url' => getenv('PYTHON_API_URL') ?: 'http://127.0.0.1:8000',
+        'python_api_url' => $_ENV['PYTHON_API_URL'] ?? 'http://127.0.0.1:8000',
     ],
 ];

@@ -1,4 +1,10 @@
 <?php
+use Dotenv\Dotenv;
+
+require __DIR__ . '/../vendor/autoload.php';
+
+$dotenv = Dotenv::createImmutable(dirname(__DIR__));
+$dotenv->safeLoad();
 
 // comment out the following two lines when deployed to production
 defined('YII_DEBUG') or define('YII_DEBUG', true);
